@@ -1,0 +1,2173 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nosso Casamento | Ana & João</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   CONFIGURAÇÕES
+========================================================= */
+
+:root{
+
+    --vinho:#805b57;
+    --vinho-dark:#684743;
+
+    --rose:#c9a49d;
+
+    --gold:#b49767;
+
+    --sage:#8d9785;
+
+    --cream:#faf7f2;
+
+    --cream-dark:#f1ebe4;
+
+    --white:#ffffff;
+
+    --text:#514643;
+
+    --muted:#857975;
+
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    font-family:"Montserrat",sans-serif;
+
+    background:var(--cream);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+}
+
+
+/* =========================================================
+   TELA DE ABERTURA
+========================================================= */
+
+.intro{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:99999;
+
+    background:
+
+    linear-gradient(
+        rgba(62,43,40,.55),
+        rgba(62,43,40,.65)
+    ),
+
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=90")
+
+    center/cover;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+    transition:1.2s ease;
+
+}
+
+
+.intro.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+}
+
+
+.intro-content{
+
+    padding:30px;
+
+    animation:introAppear 2s ease;
+
+}
+
+
+.intro-small{
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:.65rem;
+
+    margin-bottom:25px;
+
+}
+
+
+.intro-names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(4.5rem,13vw,9rem);
+
+    font-weight:400;
+
+    line-height:.85;
+
+}
+
+
+.intro-date{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.3rem;
+
+    letter-spacing:4px;
+
+    margin:25px 0;
+
+}
+
+
+.open-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 35px;
+
+    border:1px solid rgba(255,255,255,.7);
+
+    border-radius:50px;
+
+    color:white;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(5px);
+
+    cursor:pointer;
+
+    font-family:"Montserrat";
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:.65rem;
+
+    transition:.4s;
+
+}
+
+
+.open-button:hover{
+
+    background:white;
+
+    color:var(--vinho);
+
+}
+
+
+@keyframes introAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   MENU
+========================================================= */
+
+.site-header{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:9000;
+
+    padding:15px 5%;
+
+    background:rgba(250,247,242,.92);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 4px 25px rgba(0,0,0,.05);
+
+}
+
+
+.nav{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+
+.logo{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:2.1rem;
+
+    color:var(--vinho);
+
+}
+
+
+.menu{
+
+    display:flex;
+
+    gap:25px;
+
+    list-style:none;
+
+}
+
+
+.menu button{
+
+    background:none;
+
+    border:0;
+
+    cursor:pointer;
+
+    color:var(--text);
+
+    font-family:"Montserrat";
+
+    font-size:.65rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+
+.menu button:hover{
+
+    color:var(--vinho);
+
+}
+
+
+.mobile-button{
+
+    display:none;
+
+    background:none;
+
+    border:0;
+
+    font-size:27px;
+
+    color:var(--vinho);
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 20px 80px;
+
+    background:
+
+    linear-gradient(
+        rgba(250,247,242,.48),
+        rgba(250,247,242,.70)
+    ),
+
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=90")
+
+    center/cover;
+
+}
+
+
+.hero-content{
+
+    max-width:900px;
+
+    animation:heroIn 2s ease;
+
+}
+
+
+.hero-label{
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-size:.65rem;
+
+    color:var(--vinho);
+
+    margin-bottom:20px;
+
+}
+
+
+.names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(5rem,13vw,10rem);
+
+    color:var(--vinho);
+
+    font-weight:400;
+
+    line-height:.8;
+
+}
+
+
+.and{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+    margin:20px 0;
+
+}
+
+
+.hero-text{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.7rem;
+
+}
+
+
+.hero-date{
+
+    margin-top:30px;
+
+    padding:15px 30px;
+
+    border-top:1px solid var(--rose);
+
+    border-bottom:1px solid var(--rose);
+
+    display:inline-block;
+
+    font-family:"Cormorant Garamond",serif;
+
+    letter-spacing:4px;
+
+    font-size:1.1rem;
+
+}
+
+
+@keyframes heroIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   ELEMENTOS GERAIS
+========================================================= */
+
+.section{
+
+    padding:110px 6%;
+
+}
+
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+
+.script{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:3.5rem;
+
+    color:var(--vinho);
+
+    display:block;
+
+}
+
+
+.heading{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2.7rem;
+
+    font-weight:500;
+
+}
+
+
+.description{
+
+    max-width:620px;
+
+    margin:18px auto 0;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:.85rem;
+
+}
+
+
+/* =========================================================
+   FRASE
+========================================================= */
+
+.quote{
+
+    text-align:center;
+
+    background:var(--cream-dark);
+
+}
+
+
+.quote-text{
+
+    max-width:850px;
+
+    margin:auto;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2rem;
+
+    line-height:1.6;
+
+    font-style:italic;
+
+}
+
+
+.quote-author{
+
+    margin-top:25px;
+
+    color:var(--vinho);
+
+    font-size:.7rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =========================================================
+   HISTÓRIA
+========================================================= */
+
+.story{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+
+.story-image{
+
+    min-height:550px;
+
+    background:
+
+    url("https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=85")
+
+    center/cover;
+
+}
+
+
+.story-content{
+
+    padding:20px;
+
+}
+
+
+.story-content .script{
+
+    font-size:3rem;
+
+}
+
+
+.story-content h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2.4rem;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+
+}
+
+
+.story-content p{
+
+    color:var(--muted);
+
+    line-height:2;
+
+    font-size:.85rem;
+
+}
+
+
+/* =========================================================
+   GALERIA
+========================================================= */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+.gallery-item{
+
+    height:300px;
+
+    overflow:hidden;
+
+}
+
+
+.gallery-item img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:1s;
+
+}
+
+
+.gallery-item:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/* =========================================================
+   CONTAGEM
+========================================================= */
+
+.countdown-section{
+
+    background:var(--vinho);
+
+    color:white;
+
+    text-align:center;
+
+}
+
+
+.countdown-section .script,
+
+.countdown-section .heading{
+
+    color:white;
+
+}
+
+
+.countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.count{
+
+    min-width:120px;
+
+    padding:25px 15px;
+
+    border:1px solid rgba(255,255,255,.35);
+
+}
+
+
+.count strong{
+
+    display:block;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:3.4rem;
+
+    font-weight:400;
+
+}
+
+
+.count span{
+
+    text-transform:uppercase;
+
+    font-size:.6rem;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =========================================================
+   DETALHES
+========================================================= */
+
+.details-grid{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.detail{
+
+    text-align:center;
+
+    padding:50px 25px;
+
+    background:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.05);
+
+    transition:.4s;
+
+}
+
+
+.detail:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+.detail-icon{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+}
+
+
+.detail h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.7rem;
+
+    font-weight:500;
+
+    margin-bottom:15px;
+
+}
+
+
+.detail p{
+
+    color:var(--muted);
+
+    font-size:.8rem;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   LOCAL
+========================================================= */
+
+.location{
+
+    background:var(--cream-dark);
+
+    text-align:center;
+
+}
+
+
+.location-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    background:white;
+
+    padding:65px 30px;
+
+}
+
+
+.location-card h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2.6rem;
+
+    font-weight:500;
+
+}
+
+
+.location-card p{
+
+    margin-top:15px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 30px;
+
+    margin-top:25px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.5px;
+
+    font-size:.65rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+
+.btn-gold{
+
+    background:var(--gold);
+
+    color:white;
+
+}
+
+
+.btn-vinho{
+
+    background:var(--vinho);
+
+    color:white;
+
+}
+
+
+.btn-outline{
+
+    border:1px solid var(--vinho);
+
+    color:var(--vinho);
+
+}
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =========================================================
+   PRESENTES
+========================================================= */
+
+.gifts{
+
+    text-align:center;
+
+}
+
+
+.gift-card{
+
+    max-width:800px;
+
+    margin:auto;
+
+    padding:65px 35px;
+
+    border:1px solid rgba(128,91,87,.15);
+
+    background:white;
+
+}
+
+
+.gift-icon{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+
+.gift-card h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:2.2rem;
+
+    font-weight:500;
+
+}
+
+
+.gift-card p{
+
+    max-width:600px;
+
+    margin:15px auto;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:.85rem;
+
+}
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp{
+
+    background:
+
+    linear-gradient(
+        rgba(141,151,133,.93),
+        rgba(141,151,133,.93)
+    ),
+
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90")
+
+    center/cover;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+
+.rsvp .script,
+
+.rsvp .heading,
+
+.rsvp .description{
+
+    color:white;
+
+}
+
+
+.rsvp-message{
+
+    max-width:650px;
+
+    margin:auto;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.5rem;
+
+    line-height:1.7;
+
+}
+
+
+.whatsapp{
+
+    background:white;
+
+    color:var(--sage);
+
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+.footer{
+
+    background:#4e4140;
+
+    color:white;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+
+.footer-names{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:4.5rem;
+
+    color:var(--rose);
+
+}
+
+
+.footer-date{
+
+    margin-top:15px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:1.2rem;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:800px){
+
+    .menu{
+
+        display:none;
+
+        position:absolute;
+
+        top:65px;
+
+        left:4%;
+
+        right:4%;
+
+        background:rgba(250,247,242,.98);
+
+        padding:20px;
+
+        border-radius:10px;
+
+        flex-direction:column;
+
+        gap:8px;
+
+        box-shadow:0 15px 40px rgba(0,0,0,.1);
+
+    }
+
+
+    .menu.active{
+
+        display:flex;
+
+    }
+
+
+    .menu button{
+
+        width:100%;
+
+        padding:13px;
+
+    }
+
+
+    .mobile-button{
+
+        display:block;
+
+    }
+
+
+    .story{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+
+    .story-image{
+
+        min-height:400px;
+
+    }
+
+
+    .gallery{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .gallery-item{
+
+        height:220px;
+
+    }
+
+
+    .details-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .section{
+
+        padding:80px 5%;
+
+    }
+
+
+    .count{
+
+        min-width:95px;
+
+    }
+
+
+    .count strong{
+
+        font-size:2.5rem;
+
+    }
+
+
+    .hero{
+
+        min-height:100svh;
+
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .names{
+
+        font-size:4.5rem;
+
+    }
+
+
+    .intro-names{
+
+        font-size:4.5rem;
+
+    }
+
+
+    .gallery{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+
+    .gallery-item{
+
+        height:180px;
+
+    }
+
+
+    .countdown{
+
+        display:grid;
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ABERTURA
+===================================================== -->
+
+<div class="intro" id="intro">
+
+<div class="intro-content">
+
+<div class="intro-small">
+Um convite especial
+</div>
+
+<div class="intro-names">
+Ana & João
+</div>
+
+<div class="intro-date">
+31 • 10 • 2026
+</div>
+
+<button
+class="open-button"
+onclick="abrirConvite()">
+
+Abrir convite
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<header class="site-header">
+
+<nav class="nav">
+
+<div
+class="logo"
+onclick="irPara('inicio')">
+
+A & J
+
+</div>
+
+
+<button
+class="mobile-button"
+onclick="toggleMenu()">
+
+☰
+
+</button>
+
+
+<ul class="menu" id="menu">
+
+<li>
+<button onclick="irPara('inicio')">
+Início
+</button>
+</li>
+
+<li>
+<button onclick="irPara('historia')">
+Nossa história
+</button>
+</li>
+
+<li>
+<button onclick="irPara('momentos')">
+Momentos
+</button>
+</li>
+
+<li>
+<button onclick="irPara('detalhes')">
+O casamento
+</button>
+</li>
+
+<li>
+<button onclick="irPara('local')">
+Local
+</button>
+</li>
+
+<li>
+<button onclick="irPara('presentes')">
+Presentes
+</button>
+</li>
+
+<li>
+<button onclick="irPara('confirmar')">
+RSVP
+</button>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+class="hero"
+id="inicio">
+
+<div class="hero-content">
+
+<div class="hero-label">
+O amor nos trouxe até aqui
+</div>
+
+<div class="names">
+Ana
+<br>
+<span class="and">&</span>
+<br>
+João
+</div>
+
+<div class="hero-text">
+Vamos nos casar!
+</div>
+
+<div class="hero-date">
+31 DE OUTUBRO DE 2026
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FRASE
+===================================================== -->
+
+<section class="section quote">
+
+<div class="quote-text">
+
+"Assim, eles já não são dois,
+mas uma só carne."
+
+</div>
+
+<div class="quote-author">
+Mateus 19:6
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HISTÓRIA
+===================================================== -->
+
+<section
+class="section"
+id="historia">
+
+<div class="section-heading">
+
+<span class="script">
+Nossa história
+</span>
+
+<h2 class="heading">
+Um encontro que mudou tudo
+</h2>
+
+</div>
+
+
+<div class="story">
+
+<div class="story-image"></div>
+
+
+<div class="story-content">
+
+<span class="script">
+Era uma vez...
+</span>
+
+<h3>
+Dois caminhos que se encontraram
+</h3>
+
+<p>
+
+Algumas histórias começam de repente.
+Outras são construídas pouco a pouco,
+com encontros, conversas, risadas e
+momentos que ficam para sempre.
+
+<br><br>
+
+A nossa história é feita de pequenos
+momentos que nos trouxeram até aqui.
+E agora queremos começar juntos
+um novo capítulo.
+
+<br><br>
+
+Um capítulo chamado:
+
+<br><br>
+
+<strong>
+"Para sempre."
+
+</strong>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERIA
+===================================================== -->
+
+<section
+class="section"
+id="momentos">
+
+<div class="section-heading">
+
+<span class="script">
+Nossos momentos
+</span>
+
+<h2 class="heading">
+Um pouco da nossa história
+</h2>
+
+<p class="description">
+
+Algumas lembranças dos momentos
+que nos trouxeram até este dia.
+
+</p>
+
+</div>
+
+
+<div class="gallery">
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85">
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85">
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=85">
+
+</div>
+
+
+<div class="gallery-item">
+
+<img
+src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=85">
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTAGEM
+===================================================== -->
+
+<section class="section countdown-section">
+
+<div class="section-heading">
+
+<span class="script">
+O grande dia está chegando
+</span>
+
+<h2 class="heading">
+Contagem regressiva
+</h2>
+
+</div>
+
+
+<div class="countdown">
+
+<div class="count">
+
+<strong id="days">
+00
+</strong>
+
+<span>
+Dias
+</span>
+
+</div>
+
+
+<div class="count">
+
+<strong id="hours">
+00
+</strong>
+
+<span>
+Horas
+</span>
+
+</div>
+
+
+<div class="count">
+
+<strong id="minutes">
+00
+</strong>
+
+<span>
+Minutos
+</span>
+
+</div>
+
+
+<div class="count">
+
+<strong id="seconds">
+00
+</strong>
+
+<span>
+Segundos
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DETALHES
+===================================================== -->
+
+<section
+class="section"
+id="detalhes">
+
+<div class="section-heading">
+
+<span class="script">
+O grande dia
+</span>
+
+<h2 class="heading">
+Prepare-se para celebrar conosco
+</h2>
+
+</div>
+
+
+<div class="details-grid">
+
+
+<div class="detail">
+
+<div class="detail-icon">
+💍
+</div>
+
+<h3>
+Cerimônia
+</h3>
+
+<p>
+
+31 de Outubro de 2026
+
+<br>
+
+16h00
+
+<br>
+
+Espaço Jardim dos Sonhos
+
+</p>
+
+</div>
+
+
+<div class="detail">
+
+<div class="detail-icon">
+🥂
+</div>
+
+<h3>
+Recepção
+</h3>
+
+<p>
+
+Logo após a cerimônia
+
+<br>
+
+Jantar e celebração
+
+<br>
+
+Até que a festa termine!
+
+</p>
+
+</div>
+
+
+<div class="detail">
+
+<div class="detail-icon">
+👗
+</div>
+
+<h3>
+Traje
+</h3>
+
+<p>
+
+Esporte fino
+
+<br>
+
+Venha confortável
+
+<br>
+
+e pronto para celebrar!
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LOCAL
+===================================================== -->
+
+<section
+class="section location"
+id="local">
+
+<div class="section-heading">
+
+<span class="script">
+Onde será
+</span>
+
+<h2 class="heading">
+Nos encontraremos aqui
+</h2>
+
+</div>
+
+
+<div class="location-card">
+
+<h3>
+Espaço Jardim dos Sonhos
+</h3>
+
+<p>
+
+Rua Exemplo, 123 – Centro
+
+<br>
+
+Piripiri – PI
+
+</p>
+
+
+<a
+href="https://www.google.com/maps"
+target="_blank"
+class="btn btn-outline">
+
+📍 Abrir no Google Maps
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRESENTES
+===================================================== -->
+
+<section
+class="section gifts"
+id="presentes">
+
+<div class="section-heading">
+
+<span class="script">
+Com carinho
+</span>
+
+<h2 class="heading">
+Lista de presentes
+</h2>
+
+</div>
+
+
+<div class="gift-card">
+
+<div class="gift-icon">
+🎁
+</div>
+
+<h3>
+Sua presença é nosso maior presente
+</h3>
+
+<p>
+
+Se você desejar nos presentear,
+preparamos uma lista especial para
+facilitar sua escolha.
+
+<br><br>
+
+Muito obrigado por fazer parte
+desse momento tão importante para nós!
+
+</p>
+
+
+<a
+href="https://www.exemplo.com/lista"
+target="_blank"
+class="btn btn-gold">
+
+Ver lista de presentes
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
+<section
+class="section rsvp"
+id="confirmar">
+
+<div class="section-heading">
+
+<span class="script">
+Esperamos você
+</span>
+
+<h2 class="heading">
+Confirme sua presença
+</h2>
+
+<p class="description">
+
+Sua presença tornará nosso dia ainda
+mais especial.
+
+</p>
+
+</div>
+
+
+<div class="rsvp-message">
+
+Para confirmar sua presença,
+clique no botão abaixo e envie
+uma mensagem pelo WhatsApp.
+
+</div>
+
+
+<a
+href="https://wa.me/5586999999999?text=Olá!%20Gostaria%20de%20confirmar%20minha%20presença%20no%20casamento%20da%20Ana%20e%20do%20João.%20🤍"
+target="_blank"
+class="btn whatsapp">
+
+💬 Confirmar presença
+
+</a>
+
+</section>
+
+
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+
+<footer class="footer">
+
+<div class="footer-names">
+Ana & João
+</div>
+
+<div class="footer-date">
+31 • 10 • 2026
+</div>
+
+<p style="margin-top:25px;opacity:.7;font-size:.7rem;">
+Com amor, esperamos você.
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   ABRIR CONVITE
+===================================================== */
+
+function abrirConvite(){
+
+    const intro =
+    document.getElementById("intro");
+
+    intro.classList.add("hide");
+
+    document.body.style.overflow="auto";
+
+}
+
+
+/* =====================================================
+   NAVEGAÇÃO
+===================================================== */
+
+function irPara(id){
+
+    const elemento =
+    document.getElementById(id);
+
+    if(!elemento){
+        return;
+    }
+
+
+    const header =
+    document.querySelector(".site-header");
+
+
+    const altura =
+    header ? header.offsetHeight : 0;
+
+
+    const posicao =
+
+    elemento.getBoundingClientRect().top
+
+    +
+
+    window.pageYOffset
+
+    -
+
+    altura
+
+    -
+
+    10;
+
+
+    window.scrollTo({
+
+        top:posicao,
+
+        behavior:"smooth"
+
+    });
+
+
+    document
+    .getElementById("menu")
+    .classList.remove("active");
+
+}
+
+
+/* =====================================================
+   MENU MOBILE
+===================================================== */
+
+function toggleMenu(){
+
+    document
+    .getElementById("menu")
+    .classList.toggle("active");
+
+}
+
+
+/* =====================================================
+   CONTAGEM REGRESSIVA
+===================================================== */
+
+/*
+
+ALTERE A DATA ABAIXO.
+
+Formato:
+
+AAAA-MM-DDTHH:MM:SS-03:00
+
+*/
+
+const weddingDate =
+new Date("2026-10-31T16:00:00-03:00").getTime();
+
+
+function countdown(){
+
+    const now =
+    new Date().getTime();
+
+
+    const distance =
+    weddingDate-now;
+
+
+    if(distance<=0){
+
+        document.getElementById("days").innerText="00";
+
+        document.getElementById("hours").innerText="00";
+
+        document.getElementById("minutes").innerText="00";
+
+        document.getElementById("seconds").innerText="00";
+
+        return;
+
+    }
+
+
+    const days =
+    Math.floor(
+        distance/
+        (1000*60*60*24)
+    );
+
+
+    const hours =
+    Math.floor(
+        (distance%
+        (1000*60*60*24))
+        /
+        (1000*60*60)
+    );
+
+
+    const minutes =
+    Math.floor(
+        (distance%
+        (1000*60*60))
+        /
+        (1000*60)
+    );
+
+
+    const seconds =
+    Math.floor(
+        (distance%
+        (1000*60))
+        /1000
+    );
+
+
+    document.getElementById("days").innerText =
+    String(days).padStart(2,"0");
+
+
+    document.getElementById("hours").innerText =
+    String(hours).padStart(2,"0");
+
+
+    document.getElementById("minutes").innerText =
+    String(minutes).padStart(2,"0");
+
+
+    document.getElementById("seconds").innerText =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+countdown();
+
+setInterval(countdown,1000);
+
+
+/* =====================================================
+   IMPEDIR SCROLL ENQUANTO ABERTURA ESTIVER ATIVA
+===================================================== */
+
+document.body.style.overflow="hidden";
+
+
+</script>
+
+</body>
+</html>
+```
